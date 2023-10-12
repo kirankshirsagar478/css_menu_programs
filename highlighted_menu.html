@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+    ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    li {
+        display: inline;
+        margin-right: 20px;
+        position: relative;
+        cursor: pointer; /* Add cursor pointer on hover */
+    }
+
+    /* Highlight style for the main menu item */
+    li:hover {
+        background-color: #ccc;
+        border-radius: 5px;
+    }
+
+    .submenu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        display: none;
+        list-style: none;
+        padding: 0;
+    }
+
+    .submenu li {
+        display: block;
+        margin-right: 10px;
+    }
+</style>
+</head>
+<body>
+    <ul>
+        <li onmouseover="showSubMenu('file')" onmouseout="hideSubMenu('file')">File
+            <ul id="file" class="submenu">
+                <li onclick="alert('New')">New</li>
+                <li onclick="alert('Open')">Open</li>
+                <li onclick="alert('Save')">Save</li>
+            </ul>
+        </li>
+        <li onmouseover="showSubMenu('edit')" onmouseout="hideSubMenu('edit')">Edit
+            <ul id="edit" class="submenu">
+                <li onclick="alert('Cut')">Cut</li>
+                <li onclick="alert('Copy')">Copy</li>
+                <li onclick="alert('Paste')">Paste</li>
+            </ul>
+        </li>
+        <li onmouseover="showSubMenu('view')" onmouseout="hideSubMenu('view')">View
+            <ul id="view" class="submenu">
+                <li onclick="alert('Zoom In')">Zoom In</li>
+                <li onclick="alert('Zoom Out')">Zoom Out</li>
+            </ul>
+        </li>
+    </ul>
+</body>
+<script>
+    function showSubMenu(submenuId) {
+        const submenu = document.getElementById(submenuId);
+        submenu.style.display = 'block';
+    }
+    function hideSubMenu(submenuId) {
+        const submenu = document.getElementById(submenuId);
+        submenu.style.display = 'none';
+    }
+</script>
+</html>

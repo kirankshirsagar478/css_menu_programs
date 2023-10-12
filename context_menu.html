@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+    /* Style for the context menu */
+    #context-menu {
+        display: none;
+        position: absolute;
+        background: #fff;
+        border: 1px solid #ccc;
+        padding: 5px;
+    }
+</style>
+</head>
+<body>
+    <div id="target" oncontextmenu="showContextMenu(event); return false;">Right-click me!</div>
+
+    <div id="context-menu">
+        <ul>
+            <li onclick="alert('Option 1 selected')">Option 1</li>
+            <li onclick="alert('Option 2 selected')">Option 2</li>
+            <li onclick="alert('Option 3 selected')">Option 3</li>
+        </ul>
+    </div>
+
+    <script>
+        function showContextMenu(event) {
+            event.preventDefault(); // Prevent the default browser context menu
+            const contextMenu = document.getElementById('context-menu');
+            contextMenu.style.display = 'block';
+            contextMenu.style.left = event.clientX + 'px';
+            contextMenu.style.top = event.clientY + 'px';
+
+            // Hide the context menu when a menu item is clicked
+            const contextMenuItems = contextMenu.querySelectorAll('li');
+            contextMenuItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    contextMenu.style.display = 'none';
+                });
+            });
+
+            // Hide the context menu when clicking anywhere outside of it
+            window.addEventListener('click', function() {
+                contextMenu.style.display = 'none';
+            });
+
+            // Prevent the context menu from being hidden when clicking inside it
+            contextMenu.addEventListener('click', function(event) {
+                event.stopPropagation();
+            });
+        }
+    </script>
+</body>
+</html>

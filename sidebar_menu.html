@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+    /* Sidebar styles */
+    #sidebar {
+        width: 200px;
+        height: 100%;
+        background-color: #333;
+        color: #fff;
+        position: fixed;
+        top: 0;
+        left: -200px; /* Initially hidden */
+        transition: left 0.3s;
+    }
+
+    #sidebar ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    #sidebar li {
+        padding: 10px;
+        text-align: center;
+        cursor: pointer;
+    }
+
+    #content {
+        margin-left: 200px;
+        padding: 20px;
+    }
+</style>
+</head>
+<body>
+    <div id="sidebar">
+        <ul>
+            <br><br>
+            <li onclick="navigate('Product')">Product</li>
+            <li onclick="navigate('Services')">Services</li>
+            <li onclick="navigate('Department')">Department</li>
+            <li onclick="navigate('Contact')">Contact</li>
+        </ul>
+    </div>
+
+    <div id="content">
+        <h1>Welcome to the Home Page</h1>
+    </div>
+
+    <script>
+        function navigate(page) {
+            // Simulate navigating to different pages
+            const content = document.getElementById('content');
+            content.innerHTML = `<h1>Welcome to ${page}</h1>`;
+        }
+
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            if (sidebar.style.left === '0px') {
+                sidebar.style.left = '-200px';
+            } else {
+                sidebar.style.left = '0px';
+            }
+        }
+    </script>
+
+    <button onclick="toggleSidebar()" style="position: fixed; top: 20px; left: 20px; cursor: pointer;">☰ Open Menu</button>
+</body>
+</html>

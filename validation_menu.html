@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <script>
+    function validateSelection() {
+      const menu = document.getElementById("menu");
+      const selectedOption = menu.value;
+      if (selectedOption === "default") {
+        alert("Please select a valid option.");
+      } else {
+        alert("You have selected: " + selectedOption);
+    }
+  }
+  </script>
+<body>
+  <label for="menu">Select an option:</label>
+  <select id="menu">
+    <option value="default">Select an option</option>
+    <option value="option1">Option 1</option>
+    <option value="option2">Option 2</option>
+    <option value="option3">Option 3</option>
+  </select>
+  <button onclick="validateSelection()">Submit</button>
+</body>
+</html>

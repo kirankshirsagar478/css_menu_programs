@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+    ul.tree {
+        list-style: none;
+        padding: 0;
+    }
+
+    ul.tree li {
+        margin-left: 20px;
+        position: relative;
+        cursor: pointer;
+    }
+
+    ul.tree li:before {
+        content: "+";
+        position: absolute;
+        left: -20px;
+    }
+
+    ul.tree li.collapsed:before {
+        content: "-";
+    }
+</style>
+</head>
+<body>
+    <ul class="tree">
+        <li>Product
+            <ul class="tree">
+                <li>Subproduct 1</li>
+                <li>Subproduct 2</li>
+            </ul>
+        </li>
+        <li>Services
+            <ul class="tree">
+                <li>Subservice 1</li>
+                <li>Subservice 2</li>
+            </ul>
+        </li>
+        <li>Contact</li>
+    </ul>
+
+    <script>
+        // Add click event listener to handle folding/unfolding
+        const treeItems = document.querySelectorAll(".tree li");
+        treeItems.forEach(item => {
+            item.addEventListener("click", function() {
+                this.classList.toggle("collapsed");
+
+                // Toggle the visibility of sub-menu items
+                const subMenu = this.querySelector("ul.tree");
+                if (subMenu) {
+                    subMenu.style.display = this.classList.contains("collapsed") ? "none" : "block";
+                }
+            });
+        });
+    </script>
+</body>
+</html>

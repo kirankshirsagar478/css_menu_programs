@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        /* Basic styling for the tab menu */
+        .tab-menu {
+            display: flex;
+        }
+        .tab {
+            margin-right: 10px;
+            cursor: pointer;
+        }
+        /* Style for the active tab */
+        .tab.active {
+            font-weight: bold;
+        }
+        /* Style for the tab content */
+        .tab-content {
+            display: none;
+            padding: 10px;
+        }
+        /* Style for the active tab content */
+        .tab-content.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="tab-menu">
+        <div class="tab" id="home-tab">Home</div>
+        <div class="tab" id="about-tab">About Us</div>
+        <div class="tab" id="contact-tab">Contact</div>
+    </div>
+    <div class="tab-content" id="home-content">This is the Home tab.</div>
+    <div class="tab-content" id="about-content">This is the About Us tab.</div>
+    <div class="tab-content" id="contact-content">This is the Contact Us tab.</div>
+</body>
+<script>
+    // JavaScript for tab functionality
+    const tabs = document.querySelectorAll('.tab');
+    const tabContents = document.querySelectorAll('.tab-content');
+    tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            // Remove 'active' class from all tabs and tab contents
+            tabs.forEach(t => t.classList.remove('active'));
+            tabContents.forEach(content => content.classList.remove('active'));
+            // Add 'active' class to the clicked tab and its associated content
+            tab.classList.add('active');
+            const contentId = tab.id.replace('-tab', '-content');
+            document.getElementById(contentId).classList.add('active');
+        });
+    });
+    // Initialize by setting the Home tab as active
+    document.getElementById('home-tab').click();
+</script>
+</html>

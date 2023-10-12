@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+    <div id="menu" style="width: 200px; border: 1px solid #ccc; height: 150px; overflow: hidden;">
+        <ul id="menu-list" style="padding: 0;">
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+            <li>Item 4</li>
+            <li>Item 5</li>
+            <li>Item 6</li>
+            <li>Item 7</li>
+            <li>Item 8</li>
+            <li>Item 9</li>
+            <li>Item 10</li>
+            <li>Item 11</li>
+            <li>Item 12</li>
+            <li>Item 13</li>
+            <li>Item 14</li>
+            <li>Item 15</li>
+            <!-- Add more items as needed -->
+        </ul>
+    </div>
+
+    <script>
+        const menuList = document.getElementById('menu-list');
+        const menu = document.getElementById('menu');
+
+        // JavaScript code to determine when to show the scrollbar
+        if (menuList.scrollHeight > menu.clientHeight) {
+            menu.style.overflowY = 'scroll';
+        } else {
+            menu.style.overflowY = 'hidden';
+        }
+    </script>
+</body>
+</html>
